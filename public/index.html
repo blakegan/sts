@@ -7,6 +7,21 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Karma|Patua+One" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDl3fTK0ABsiWhoSJqzrTm_PrtQ40C2HDk",
+        authDomain: "spiredb.firebaseapp.com",
+        databaseURL: "https://spiredb.firebaseio.com",
+        projectId: "spiredb",
+        storageBucket: "spiredb.appspot.com",
+        messagingSenderId: "15518290682"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <title>Slay the Spire</title>
   </head>
   <body>

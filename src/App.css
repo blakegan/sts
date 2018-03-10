@@ -1,6 +1,12 @@
 body {
   background-image: url("/background.jpg");
   cursor: url("/yellow-cursor.png"), auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .card-container {
@@ -17,13 +23,20 @@ body {
   top: 2.5px;
 }
 
+.card-background {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+}
+
 .card-background.status {
-  background-size: cover;
-  background-image: url("/status-bg.png");
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  position: relative;
+    background-image: url("/status-bg.png");
+}
+
+.card-background.curse {
+    background-image: url("/curse-bg.png");
 }
 
 .card-banner {
@@ -43,7 +56,7 @@ body {
   background-image: url("/banner-common.png");
 }
 
-.card-title {
+.card-name {
   font-family: 'Patua One', cursive;
   position: relative;
   z-index: 3;
@@ -64,7 +77,7 @@ body {
   /*-webkit-text-stroke: 1px black;*/
 }
 
-.card-container:hover .card-title {
+.card-container:hover .card-name {
   top: -94.5%;
   font-size: 1.3rem;
 }
@@ -85,23 +98,38 @@ body {
 
 .card-text {
   font-family: 'Karma', serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   position: relative;
-  width: 100%;
+  margin: auto;
+  width: 71%;
   height: 50%;
-  top: -103%;
+  top: -113%;
   text-align: center;
   color: #fef4e4;
   z-index: 2;
+  line-height: 110%
+}
+
+.card-text ul {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  top: 28%;
+  transform: translate(0px, -50%);
+}
+
+.card-text li {
+  list-style: none;
 }
 
 .card-text .keyword {
   color: #ebc85a;
+  cursor: url("/magnifying-glass.png") 15 15, auto;
 }
 
 .card-container:hover .card-text {
-  font-size: 1.3rem;
-  top: -104%;
+  font-size: 1.1rem;
+  top: -114%;
 }
 
 .book {
