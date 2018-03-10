@@ -1,0 +1,113 @@
+body {
+  background-image: url("/background.jpg");
+  cursor: url("/yellow-cursor.png"), auto;
+}
+
+.card-container {
+  width: 200px;
+  height: 255px;
+  margin: 12.5px 10px;
+  position: relative;
+}
+
+.card-container:hover {
+  width: 240px;
+  height: 305px;
+  margin: -15px -10px;
+  top: 2.5px;
+}
+
+.card-background.status {
+  background-size: cover;
+  background-image: url("/status-bg.png");
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+.card-banner {
+  background-size: cover;
+  width: 100%;
+  height: 22%;
+  top: -106.25%;
+  position: relative;
+  z-index: 2;
+}
+
+.card-container:hover .card-banner {
+  top: -107%;
+}
+
+.common {
+  background-image: url("/banner-common.png");
+}
+
+.card-title {
+  font-family: 'Patua One', cursive;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  top: -94%;
+  font-size: 1rem;
+  color: #fdf8e1;
+  text-shadow:
+     1px   1px 5px   #000,
+     1px  2px  0px   #000,
+     0px  1px 0   #000,
+     0px -1px 0   #000,
+     1px  1px 0   #000,
+    -1px -1px 0   #000,
+     1px -1px 0   #000,
+    -1px  1px 0   #000,
+     1px  1px 5px #000;
+  /*-webkit-text-stroke: 1px black;*/
+}
+
+.card-container:hover .card-title {
+  top: -94.5%;
+  font-size: 1.3rem;
+}
+
+.card-art {
+  width: 80%;
+  height: 45%;
+  top: -117%;
+  margin: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.card-art img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-text {
+  font-family: 'Karma', serif;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+  height: 50%;
+  top: -103%;
+  text-align: center;
+  color: #fef4e4;
+  z-index: 2;
+}
+
+.card-text .keyword {
+  color: #ebc85a;
+}
+
+.card-container:hover .card-text {
+  font-size: 1.3rem;
+  top: -104%;
+}
+
+.book {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  width: 1200px;
+  margin:auto;
+}
