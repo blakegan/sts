@@ -1,5 +1,9 @@
 body {
   background-image: url("/background.jpg");
+  background-repeat:no-repeat;
+  background-size:fill;
+  background-position:center;
+  background-attachment: fixed;
   cursor: url("/yellow-cursor.png"), auto;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -101,7 +105,7 @@ body {
   font-size: 0.9rem;
   position: relative;
   margin: auto;
-  width: 71%;
+  width: 72%;
   height: 50%;
   top: -113%;
   text-align: center;
@@ -136,6 +140,6 @@ body {
   position: relative;
   display: flex;
   flex-flow: wrap;
-  width: 1200px;
+  max-width: 1200px;
   margin:auto;
 }
