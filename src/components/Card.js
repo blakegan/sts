@@ -4,9 +4,20 @@ import PropTypes from 'prop-types';
 export class Card extends Component {
   render() {
     const classNames = require('classnames');
-    let backgroundClasses = classNames('card-background', this.props.family);
-    let bannerClasses = classNames('card-banner', this.props.rarity);
+    const ART_PATH_BASE = "./card-assets/art/";
 
+    let backgroundClasses = classNames('card-background', this.props.family, this.props.rarity, this.props.type);
+
+    let cost = "";
+    if (this.props.cost === "na") {
+      backgroundClasses = classNames(backgroundClasses, "costless");
+    } else {
+      cost = this.props.cost;
+    }
+
+    let artPath = ART_PATH_BASE + this.props.family + "/" + this.props.art;
+
+    // Text post-processing for KEYWORDS
     let text = this.props.text.map((line, index) => {
       let pieces = [];
       let keywordIndex = line.indexOf("<kw>");
@@ -35,10 +46,9 @@ export class Card extends Component {
     return (
       <div className="card-container" key={this.props.id}>
         <div className={backgroundClasses}></div>
-        <div className="card-cost"></div>
+        <div className="card-cost">{cost}</div>
         <div className="card-name">{this.props.name}</div>
-        <div className={bannerClasses} type="attack"></div>
-        <div className="card-art"><img alt={this.props.name} src={this.props.art} /></div>
+        <div className="card-art"><img alt={this.props.name} src={artPath} /></div>
         <div className="card-text">
           <ul>
             {text}
@@ -51,11 +61,13 @@ export class Card extends Component {
 
 Card.propTypes = {
   id: PropTypes.number,
-  name: PropTypes.string,
   art: PropTypes.string,
+  cost: PropTypes.string,
   family: PropTypes.string,
+  name: PropTypes.string,
   rarity: PropTypes.string,
   text: PropTypes.array,
+  type: PropTypes.string
 }
 
 export default Card;

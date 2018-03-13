@@ -14,15 +14,17 @@ export class Book extends Component {
     this.firebaseRef = window.firebase.database().ref('/cards');
     let cards = [];
 
-    this.firebaseRef.once("value", (snapshot) => {
+    this.firebaseRef.orderByChild("isUpgrade").equalTo(false).once("value", (snapshot) => {
       snapshot.forEach( (data) => {
         let card = {
           id: data.val().id,
-          name: data.val().name,
-          family: data.val().family,
-          rarity: data.val().rarity,
           art: data.val().art,
-          text: data.val().text
+          cost: data.val().cost,
+          family: data.val().family,
+          name: data.val().name,
+          rarity: data.val().rarity,
+          text: data.val().text,
+          type: data.val().type
         }
         cards.push(card);
         this.setState({cards: cards});
@@ -36,7 +38,7 @@ export class Book extends Component {
     if (this.state.cards) {
       cards = this.state.cards.map(card => {
         return (
-          <Card key={card.id} family={card.family} name={card.name} art={card.art} rarity={card.rarity} text={card.text}/>
+          <Card key={card.id} art={card.art} cost={card.cost} family={card.family} name={card.name} rarity={card.rarity} text={card.text} type={card.type}/>
         );
       });
     }
