@@ -1,10 +1,10 @@
 body {
-  background-image: url("/background.jpg");
+  background-image: url("/misc-assets/background.jpg");
   background-repeat:no-repeat;
   background-size:fill;
   background-position:center;
   background-attachment: fixed;
-  cursor: url("/yellow-cursor.png"), auto;
+  cursor: url("/misc-assets/yellow-cursor.png"), auto;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -169,7 +169,7 @@ body {
 
 .card-text .keyword {
   color: #ebc85a;
-  cursor: url("/magnifying-glass.png") 15 15, auto;
+  cursor: url("/misc-assets/magnifying-glass.png") 15 15, auto;
 }
 
 .card-container:hover .card-text {
