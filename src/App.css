@@ -35,14 +35,17 @@ body {
     position: relative;
 }
 
+/* STATUS */
 .card-background.status.common.costless {
     background-image: url("/card-assets/backgrounds/status-common-costless.png");
 }
 
+/* CURSE */
 .card-background.curse.common.costless {
     background-image: url("/card-assets/backgrounds/curse-common-costless.png");
 }
 
+/* COLORLESS */
 .card-background.colorless.attack.common {
     background-image: url("/card-assets/backgrounds/colorless-attack-common.png");
 }
@@ -71,6 +74,39 @@ body {
     background-image: url("/card-assets/backgrounds/colorless-power-rare.png");
 }
 
+/* RED */
+.card-background.red.attack.common, .card-background.red.attack.basic {
+    background-image: url("/card-assets/backgrounds/red-attack-common.png");
+}
+
+.card-background.red.skill.common, .card-background.red.skill.basic {
+    background-image: url("/card-assets/backgrounds/red-skill-common.png");
+}
+
+.card-background.red.attack.uncommon {
+    background-image: url("/card-assets/backgrounds/red-attack-uncommon.png");
+}
+
+.card-background.red.skill.uncommon {
+    background-image: url("/card-assets/backgrounds/red-skill-uncommon.png");
+}
+
+.card-background.red.attack.rare {
+    background-image: url("/card-assets/backgrounds/red-attack-rare.png");
+}
+
+.card-background.red.skill.rare {
+    background-image: url("/card-assets/backgrounds/red-skill-rare.png");
+}
+
+.card-background.red.power.uncommon {
+    background-image: url("/card-assets/backgrounds/red-power-uncommon.png");
+}
+
+.card-background.red.power.rare {
+    background-image: url("/card-assets/backgrounds/red-power-rare.png");
+}
+
 .card-container:hover .card-banner {
   top: -103.9%;
 }
@@ -93,6 +129,10 @@ body {
      1px -1px 0   #000,
     -1px  1px 0   #000,
      1px  1px 5px #000;
+}
+
+.card-container.red .card-name {
+  top:-91%;
 }
 
 .card-container:hover .card-name {
@@ -134,6 +174,10 @@ body {
   margin: auto;
   position: relative;
   z-index: 0;
+}
+
+.card-container.red .card-art {
+  top:-93%;
 }
 
 .card-art img {

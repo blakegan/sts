@@ -7,6 +7,7 @@ export class Card extends Component {
     const ART_PATH_BASE = "./card-assets/art/";
 
     let backgroundClasses = classNames('card-background', this.props.family, this.props.rarity, this.props.type);
+    let containerClasses = classNames('card-container', this.props.family);
 
     let cost = "";
     if (this.props.cost === "na") {
@@ -24,16 +25,19 @@ export class Card extends Component {
 
       if (keywordIndex > -1) {
         let endIndex = 0;
+        let startIndex = 0;
 
         while (keywordIndex > -1) {
           endIndex = line.indexOf("</kw>", keywordIndex);
-          let constructedLine = line.substring(0, keywordIndex);
+          let constructedLine = line.substring(startIndex, keywordIndex);
           pieces.push(constructedLine);
           let keyword = line.substring(keywordIndex+4, endIndex);
           let keywordSpan = (<span key={keywordIndex} className="keyword">{keyword}</span>);
           pieces.push(keywordSpan);
           keywordIndex = line.indexOf("<kw>", keywordIndex+1);
+          startIndex = endIndex+5;
         }
+
         let finalPiece = line.substr(endIndex+5);
         pieces.push(finalPiece);
       } else {
@@ -44,7 +48,7 @@ export class Card extends Component {
     });
 
     return (
-      <div className="card-container" key={this.props.id}>
+      <div className={containerClasses} key={this.props.id}>
         <div className={backgroundClasses}></div>
         <div className="card-cost">{cost}</div>
         <div className="card-name">{this.props.name}</div>
