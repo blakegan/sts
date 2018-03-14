@@ -13,6 +13,7 @@ body {
   user-select: none;
 }
 
+/* CARD CONTAINER */
 .card-container {
   width: 200px;
   height: 260px;
@@ -27,6 +28,7 @@ body {
   top: 2.5px;
 }
 
+/* CARD BACKGROUND */
 .card-background {
     background-size: cover;
     width: 100%;
@@ -107,17 +109,59 @@ body {
     background-image: url("/card-assets/backgrounds/red-power-rare.png");
 }
 
-.card-container:hover .card-banner {
-  top: -103.9%;
+/* GREEN */
+.card-background.green.attack.common.costless{
+    background-image: url("/card-assets/backgrounds/green-attack-common-costless.png");
 }
 
+.card-background.green.skill.uncommon.costless{
+    background-image: url("/card-assets/backgrounds/green-skill-uncommon-costless.png");
+}
+
+.card-background.green.skill.rare.costless{
+    background-image: url("/card-assets/backgrounds/green-skill-rare-costless.png");
+}
+
+.card-background.green.attack.common, .card-background.green.attack.basic {
+    background-image: url("/card-assets/backgrounds/green-attack-common.png");
+}
+
+.card-background.green.skill.common, .card-background.green.skill.basic {
+    background-image: url("/card-assets/backgrounds/green-skill-common.png");
+}
+
+.card-background.green.attack.uncommon {
+    background-image: url("/card-assets/backgrounds/green-attack-uncommon.png");
+}
+
+.card-background.green.skill.uncommon {
+    background-image: url("/card-assets/backgrounds/green-skill-uncommon.png");
+}
+
+.card-background.green.attack.rare {
+    background-image: url("/card-assets/backgrounds/green-attack-rare.png");
+}
+
+.card-background.green.skill.rare {
+    background-image: url("/card-assets/backgrounds/green-skill-rare.png");
+}
+
+.card-background.green.power.uncommon {
+    background-image: url("/card-assets/backgrounds/green-power-uncommon.png");
+}
+
+.card-background.green.power.rare {
+    background-image: url("/card-assets/backgrounds/green-power-rare.png");
+}
+
+/* CARD NAME */
 .card-name {
   font-family: 'Patua One', cursive;
   position: relative;
   z-index: 3;
   text-align: center;
-  top: -90%;
-  font-size: 1rem;
+  top: -89.5%;
+  font-size: 0.9rem;
   color: #fdf8e1;
   text-shadow:
      1px   1px 5px   #000,
@@ -131,14 +175,15 @@ body {
      1px  1px 5px #000;
 }
 
-.card-container.red .card-name {
-  top:-91%;
+.card-container.red .card-name, .card-container.green .card-name {
+  top:-90.5%;
 }
 
 .card-container:hover .card-name {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
 }
 
+/* CARD COST */
 .card-cost {
   font-family: 'Patua One', cursive;
   position: relative;
@@ -166,7 +211,22 @@ body {
   font-size: 1.7rem;
 }
 
+.card-container.colorless .card-cost{
+  top: -96.8%;
+  left: -0.2%;
+}
 
+.card-container.red .card-cost {
+  top: -97.7%;
+  left: -0.5%;
+}
+
+.card-container.green .card-cost{
+  top: -96.8%;
+  left: 0%;
+}
+
+/* CARD ART */
 .card-art {
   width: 80%;
   height: 45%;
@@ -176,8 +236,8 @@ body {
   z-index: 0;
 }
 
-.card-container.red .card-art {
-  top:-93%;
+.card-container.red .card-art, .card-container.green .card-art {
+  top: -94%;
 }
 
 .card-art img {
@@ -185,12 +245,13 @@ body {
   height: 100%;
 }
 
+/* CARD TEXT */
 .card-text {
   font-family: 'Karma', serif;
-  font-size: 0.9rem;
+  font-size: 0.905rem;;
   position: relative;
   margin-left: 16%;
-  width: 71.5%;
+  width: 71.49%;
   height: 50%;
   top: -90%;
   text-align: center;
@@ -200,10 +261,10 @@ body {
 }
 
 .card-text ul {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   position: relative;
-  top: 28%;
+  top: 30%;
   transform: translate(0px, -50%);
 }
 
@@ -217,7 +278,7 @@ body {
 }
 
 .card-container:hover .card-text {
-  font-size: 1.1rem;
+  font-size: 1.089rem;
 }
 
 .book {

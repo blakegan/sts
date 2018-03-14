@@ -11,7 +11,7 @@ export class Card extends Component {
 
     let cost = "";
     if (this.props.cost === "na") {
-      backgroundClasses = classNames(backgroundClasses, "costless");
+      backgroundClasses = backgroundClasses + " costless";
     } else {
       cost = this.props.cost;
     }
