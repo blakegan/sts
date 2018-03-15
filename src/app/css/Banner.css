@@ -1,0 +1,23 @@
+.banner-container a {
+  cursor: url("/misc-assets/yellow-cursor.png"), auto;
+}
+
+.banner-container {
+  width: 30%;
+  margin: 0 1%;
+  position: relative;
+}
+
+.banner-box {
+  width: 100%;
+}
+
+.banner-box img {
+  width: 95%;
+  display: block;
+  margin: auto;
+}
+
+.banner-container:hover .banner-box img {
+  width: 100%;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import 'app/css/Card.css';
 
 export const Card = (props) => {
   const classNames = require('classnames');

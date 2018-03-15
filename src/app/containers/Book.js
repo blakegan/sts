@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from "app/components/Card";
+import 'app/css/Book.css';
 
 export class Book extends Component {
 

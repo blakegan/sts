@@ -1,0 +1,9 @@
+.home-screen {
+  position: relative;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+}

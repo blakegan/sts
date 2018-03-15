@@ -1,0 +1,7 @@
+.book {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  max-width: 1200px;
+  margin:auto;
+}
