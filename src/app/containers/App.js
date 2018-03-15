@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-import Book from "./Book";
-import ReturnButton from "../components/ReturnButton";
+import Book from "app/containers/Book";
+import {ReturnButton} from "app/components/ReturnButton";
 
 class App extends Component {
   render() {

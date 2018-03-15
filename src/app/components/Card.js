@@ -1,66 +1,64 @@
-import React, { Component } from 'react';
+import React from "react";
 import PropTypes from 'prop-types';
 
-export class Card extends Component {
-  render() {
-    const classNames = require('classnames');
-    const ART_PATH_BASE = "./card-assets/art/";
+export const Card = (props) => {
+  const classNames = require('classnames');
+  const ART_PATH_BASE = "./card-assets/art/";
 
-    let backgroundClasses = classNames('card-background', this.props.family, this.props.rarity, this.props.type);
-    let containerClasses = classNames('card-container', this.props.family);
+  let backgroundClasses = classNames('card-background', props.family, props.rarity, props.type);
+  let containerClasses = classNames('card-container', props.family);
 
-    let cost = "";
-    if (this.props.cost === "na") {
-      backgroundClasses = backgroundClasses + " costless";
-    } else {
-      cost = this.props.cost;
-    }
+  let cost = "";
+  if (props.cost === "na") {
+    backgroundClasses = backgroundClasses + " costless";
+  } else {
+    cost = props.cost;
+  }
 
-    let artPath = ART_PATH_BASE + this.props.family + "/" + this.props.art;
+  let artPath = ART_PATH_BASE + props.family + "/" + props.art;
 
-    // Text post-processing for KEYWORDS
-    let text = this.props.text.map((line, index) => {
-      let pieces = [];
-      let keywordIndex = line.indexOf("<kw>");
+  // Text post-processing for KEYWORDS
+  let text = props.text.map((line, index) => {
+    let pieces = [];
+    let keywordIndex = line.indexOf("<kw>");
 
-      if (keywordIndex > -1) {
-        let endIndex = 0;
-        let startIndex = 0;
+    if (keywordIndex > -1) {
+      let endIndex = 0;
+      let startIndex = 0;
 
-        while (keywordIndex > -1) {
-          endIndex = line.indexOf("</kw>", keywordIndex);
-          let constructedLine = line.substring(startIndex, keywordIndex);
-          pieces.push(constructedLine);
-          let keyword = line.substring(keywordIndex+4, endIndex);
-          let keywordSpan = (<span key={keywordIndex} className="keyword">{keyword}</span>);
-          pieces.push(keywordSpan);
-          keywordIndex = line.indexOf("<kw>", keywordIndex+1);
-          startIndex = endIndex+5;
-        }
-
-        let finalPiece = line.substr(endIndex+5);
-        pieces.push(finalPiece);
-      } else {
-        pieces.push(line);
+      while (keywordIndex > -1) {
+        endIndex = line.indexOf("</kw>", keywordIndex);
+        let constructedLine = line.substring(startIndex, keywordIndex);
+        pieces.push(constructedLine);
+        let keyword = line.substring(keywordIndex+4, endIndex);
+        let keywordSpan = (<span key={keywordIndex} className="keyword">{keyword}</span>);
+        pieces.push(keywordSpan);
+        keywordIndex = line.indexOf("<kw>", keywordIndex+1);
+        startIndex = endIndex+5;
       }
 
-      return <li key={index}>{pieces}</li>;
-    });
+      let finalPiece = line.substr(endIndex+5);
+      pieces.push(finalPiece);
+    } else {
+      pieces.push(line);
+    }
 
-    return (
-      <div className={containerClasses} key={this.props.id}>
-        <div className={backgroundClasses}></div>
-        <div className="card-cost">{cost}</div>
-        <div className="card-name">{this.props.name}</div>
-        <div className="card-art"><img alt={this.props.name} src={artPath} /></div>
-        <div className="card-text">
-          <ul>
-            {text}
-          </ul>
-        </div>
+    return <li key={index}>{pieces}</li>;
+  });
+
+  return (
+    <div className={containerClasses} key={props.id}>
+      <div className={backgroundClasses}></div>
+      <div className="card-cost">{cost}</div>
+      <div className="card-name">{props.name}</div>
+      <div className="card-art"><img alt={props.name} src={artPath} /></div>
+      <div className="card-text">
+        <ul>
+          {text}
+        </ul>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Card.propTypes = {
@@ -73,5 +71,3 @@ Card.propTypes = {
   text: PropTypes.array,
   type: PropTypes.string
 }
-
-export default Card;
