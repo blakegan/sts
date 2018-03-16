@@ -1,7 +1,59 @@
 .book {
   position: relative;
-  display: flex;
-  flex-flow: wrap;
+  display: grid;
+  grid-template-rows: auto;
   max-width: 1200px;
+  max-height: 580px;
   margin:auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-left: 15px;
+}
+
+.book::-webkit-scrollbar-track
+{
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.book::-webkit-scrollbar
+{
+	width: 10px;
+	background: rgba(0, 0, 0, 0);
+}
+
+.book::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+@media only screen and (min-width: 480px) {
+  .book {
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas:
+      "card1 card2";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .book {
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas:
+      "card1 card2 card3";
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .book {
+    grid-template-columns: repeat(4, auto);
+    grid-template-areas:
+      "card1 card2 card3 card4";
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .book {
+    grid-template-columns: repeat(5, auto);
+    grid-template-areas:
+      "card1 card2 card3 card4 card5";
+  }
 }

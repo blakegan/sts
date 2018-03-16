@@ -161,7 +161,7 @@
 }
 
 .card-container.colorless .card-name {
-  top:-90%;
+  top:-90.4%;
 }
 
 .card-container.red .card-name, .card-container.green .card-name {
@@ -264,6 +264,10 @@
 .card-text .keyword {
   color: #ebc85a;
   cursor: url("/misc-assets/magnifying-glass.png") 15 15, auto;
+}
+
+.upgraded {
+  color: #0ef41e;
 }
 
 .card-container:hover .card-text {

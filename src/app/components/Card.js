@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
 import 'app/css/Card.css';
 
 export const Card = (props) => {
@@ -8,50 +10,40 @@ export const Card = (props) => {
 
   let backgroundClasses = classNames('card-background', props.family, props.rarity, props.type);
   let containerClasses = classNames('card-container', props.family);
+  let nameClasses = 'card-name';
+
+  if (props.isUpgrade == true) {
+    nameClasses = nameClasses + ' upgraded';
+  }
 
   let cost = "";
   if (props.cost === "na") {
     backgroundClasses = backgroundClasses + " costless";
+  } else if (typeof props.cost === 'string') {
+    cost = props.cost.replace(/<u>/g, '<span class="upgraded">');
+    cost = cost.replace(/<\/u>/g, '</span>');
   } else {
     cost = props.cost;
   }
 
   let artPath = ART_PATH_BASE + props.family + "/" + props.art;
 
-  // Text post-processing for KEYWORDS
+  // Text post-processing
   let text = props.text.map((line, index) => {
-    let pieces = [];
-    let keywordIndex = line.indexOf("<kw>");
+    line = line.replace(/<kw>/g, '<span class="keyword">');
+    line = line.replace(/<\/kw>/g, '</span>');
 
-    if (keywordIndex > -1) {
-      let endIndex = 0;
-      let startIndex = 0;
+    line = line.replace(/<u>/g, '<span class="upgraded">');
+    line = line.replace(/<\/u>/g, '</span>');
 
-      while (keywordIndex > -1) {
-        endIndex = line.indexOf("</kw>", keywordIndex);
-        let constructedLine = line.substring(startIndex, keywordIndex);
-        pieces.push(constructedLine);
-        let keyword = line.substring(keywordIndex+4, endIndex);
-        let keywordSpan = (<span key={keywordIndex} className="keyword">{keyword}</span>);
-        pieces.push(keywordSpan);
-        keywordIndex = line.indexOf("<kw>", keywordIndex+1);
-        startIndex = endIndex+5;
-      }
-
-      let finalPiece = line.substr(endIndex+5);
-      pieces.push(finalPiece);
-    } else {
-      pieces.push(line);
-    }
-
-    return <li key={index}>{pieces}</li>;
+    return <li key={index}>{ReactHtmlParser(line)}</li>;
   });
 
   return (
     <div className={containerClasses} key={props.id}>
       <div className={backgroundClasses}></div>
-      <div className="card-cost">{cost}</div>
-      <div className="card-name">{props.name}</div>
+      <div className="card-cost">{ReactHtmlParser(cost)}</div>
+      <div className={nameClasses}>{props.name}</div>
       <div className="card-art"><img alt={props.name} src={artPath} /></div>
       <div className="card-text">
         <ul>
@@ -66,6 +58,7 @@ Card.propTypes = {
   id: PropTypes.number,
   art: PropTypes.string,
   cost: PropTypes.string,
+  isUpgrade: PropTypes.boolean,
   family: PropTypes.string,
   name: PropTypes.string,
   rarity: PropTypes.string,

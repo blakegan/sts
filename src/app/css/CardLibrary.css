@@ -1,0 +1,52 @@
+.card-library {
+  display: grid;
+  grid-template-rows: 0.5fr 2fr 20fr 6fr 1fr;
+  grid-template-columns: 0.6fr 1fr 2fr 2fr 0.6fr;
+  grid-template-areas:
+    ". . . . ."
+    ". title title title ."
+    "book book book book book"
+    ". family tag-cloud tag-cloud ."
+    ". footer footer footer ."
+  ;
+  background: rgba(0, 0, 0, .7);
+  background-repeat:no-repeat;
+  background-size:90%;
+  background-position:center;
+  background-attachment: fixed;
+  grid-row-gap: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  grid-area: title;
+  color: #ebc85a;
+  font-size: 3rem;
+  justify-self: center;
+  align-self: center;
+  text-shadow:
+     1px   1px 5px   #000,
+     1px  2px  0px   #000,
+     0px  1px 0   #000,
+     0px -1px 0   #000,
+     1px  1px 0   #000,
+    -1px -1px 0   #000,
+     1px -1px 0   #000,
+    -1px  1px 0   #000,
+     1px  1px 5px #000;
+}
+
+.book-container {
+  grid-area: book;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card-family-filters {
+  grid-area: family;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+}

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("/misc-assets/background.jpg");
   background-repeat:no-repeat;
