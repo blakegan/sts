@@ -3,6 +3,7 @@ import { Switch, Route, withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import {Book} from 'app/components/Book';
+import {Loading} from 'app/components/Loading';
 import {FamilyFilter} from 'app/components/FamilyFilter';
 import 'app/css/CardLibrary.css';
 
@@ -17,7 +18,11 @@ export class CardLibrary extends Component {
       <div className="card-library">
         <div className="title">Card Library</div>
         <div className="book-container">
-          <Book cards={cards}/>
+          {this.props.app.isLoading ? (
+            <Loading />
+          ) : (
+            <Book cards={cards}/>
+          )}
         </div>
         <div className="card-family-filters">
           <FamilyFilter filters={[

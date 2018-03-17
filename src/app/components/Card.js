@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 import 'app/css/Card.css';
 
@@ -12,7 +12,7 @@ export const Card = (props) => {
   let containerClasses = classNames('card-container', props.family);
   let nameClasses = 'card-name';
 
-  if (props.isUpgrade == true) {
+  if (props.isUpgrade === true) {
     nameClasses = nameClasses + ' upgraded';
   }
 
@@ -58,7 +58,7 @@ Card.propTypes = {
   id: PropTypes.number,
   art: PropTypes.string,
   cost: PropTypes.string,
-  isUpgrade: PropTypes.boolean,
+  isUpgrade: PropTypes.bool,
   family: PropTypes.string,
   name: PropTypes.string,
   rarity: PropTypes.string,

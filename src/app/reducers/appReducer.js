@@ -8,10 +8,17 @@ const appReducer = (state, action) => {
   }
 
   switch (action.type){
-    case "LOAD_CARD_DATABASE":
+    case "LOAD_CARD_DATABASE_REQUEST":
+    let appState = {...state.app};
+      state = {
+        ...state,
+        app: {...appState, isLoading:true}
+      };
+      break;
+    case "LOAD_CARD_DATABASE_RECEIVED":
       let cardDatabase = [];
 
-      action.payload.forEach( (data) => {
+      action.payload.forEach((data) => {
         let card = {
           id: data.id,
           art: data.art,
@@ -29,13 +36,13 @@ const appReducer = (state, action) => {
 
       state = {
         ...state,
-        app: {cardDatabase}
+        app: {cardDatabase, isLoading: false}
       };
       break;
     default:
       break;
   }
-  
+
   return state;
 };
 
