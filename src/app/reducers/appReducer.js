@@ -1,18 +1,12 @@
-const initialState = {
-  app: {cardDatabase: []}
-};
-
-const appReducer = (state, action) => {
-  if (typeof state === 'undefined') {
-    return initialState;
-  }
-
+const appReducer = (state = {
+  cardDatabase: []
+}, action) => {
   switch (action.type){
     case "LOAD_CARD_DATABASE_REQUEST":
     let appState = {...state.app};
       state = {
-        ...state,
-        app: {...appState, isLoading:true}
+        ...appState,
+        isLoading:true
       };
       break;
     case "LOAD_CARD_DATABASE_RECEIVED":
@@ -36,7 +30,8 @@ const appReducer = (state, action) => {
 
       state = {
         ...state,
-        app: {cardDatabase, isLoading: false}
+        cardDatabase,
+        isLoading: false
       };
       break;
     default:

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
+import classNames from 'classnames';
 
 import 'app/css/Card.css';
 
 export const Card = (props) => {
-  const classNames = require('classnames');
   const ART_PATH_BASE = "./card-assets/art/";
 
   let backgroundClasses = classNames('card-background', props.family, props.rarity, props.type);

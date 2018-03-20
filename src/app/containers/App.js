@@ -7,12 +7,13 @@ import 'app/css/App.css';
 import HomeScreen from 'app/containers/HomeScreen';
 import CardLibrary from 'app/containers/CardLibrary';
 
-import {loadCardDatabase} from 'app/actions/appActions';
+import {loadCardDatabase, loadFamilyFilters} from 'app/actions/appActions';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.loadCardDatabase();
+    this.props.loadFamilyFilters();
   }
 
   render() {
@@ -29,7 +30,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    app: state.app
+    app: state.app,
+    cardLibrary: state.cardLibrary
   };
 };
 
@@ -37,6 +39,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     loadCardDatabase: () => {
       dispatch(loadCardDatabase());
+    },
+    loadFamilyFilters: () => {
+      dispatch(loadFamilyFilters());
     }
   };
 };

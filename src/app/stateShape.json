@@ -2,6 +2,10 @@
   "app": {
     "cardDatabase": [
 
-      ]
-    }
+    ]
+  },
+  "cardLibrary": {
+    "book": [],
+    "filters": []
+  }
 }

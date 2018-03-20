@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import {Book} from 'app/components/Book';
 import {Loading} from 'app/components/Loading';
 import {FamilyFilter} from 'app/components/FamilyFilter';
+
+import {toggleFamilyFilter} from 'app/actions/cardLibraryActions';
+
 import 'app/css/CardLibrary.css';
 
 export class CardLibrary extends Component {
@@ -12,6 +15,11 @@ export class CardLibrary extends Component {
     let cards = [];
     if (this.props.app.cardDatabase) {
       cards = this.props.app.cardDatabase;
+    }
+
+    let familyFilters = [];
+    if (this.props.cardLibrary.filters) {
+      familyFilters = this.props.cardLibrary.filters;
     }
 
     return (
@@ -25,28 +33,7 @@ export class CardLibrary extends Component {
           )}
         </div>
         <div className="card-family-filters">
-          <FamilyFilter filters={[
-            {
-              id: 1,
-              name: "Red"
-            },
-            {
-              id: 2,
-              name: "Green"
-            },
-            {
-              id: 3,
-              name: "Colorless"
-            },
-            {
-              id: 4,
-              name: "Curse"
-            },
-            {
-              id: 5,
-              name: "Status"
-            },
-          ]} />
+          <FamilyFilter filters={familyFilters} />
         </div>
         <div className="tag-cloud"></div>
         <div className="nav-footer"></div>
@@ -55,14 +42,20 @@ export class CardLibrary extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    app: state.app
+    app: state.app,
+    cardLibrary: state.cardLibrary
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    toggleFamilyFilter: (family) => {
+      dispatch(toggleFamilyFilter(family));
+    }
+  };
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CardLibrary));

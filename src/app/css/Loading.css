@@ -1,0 +1,15 @@
+.loading-container h1 {
+  color: #ebc85a;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow:
+     1px   1px 5px   #000,
+     1px  2px  0px   #000,
+     0px  1px 0   #000,
+     0px -1px 0   #000,
+     1px  1px 0   #000,
+    -1px -1px 0   #000,
+     1px -1px 0   #000,
+    -1px  1px 0   #000,
+     1px  1px 5px #000;
+}

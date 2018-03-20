@@ -1,0 +1,72 @@
+.family-container {
+  justify-self: center;
+}
+
+.family-container Button{
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: url("/misc-assets/yellow-cursor.png"), auto;
+  border-radius: 5px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.family-container Button:focus {
+  outline: none;
+}
+
+.family-container.Curse {
+  grid-area: curse;
+}
+
+.family-container.Status {
+  grid-area: status;
+}
+
+.family-container.Red {
+  grid-area: red;
+}
+
+.family-container.Green {
+  grid-area: green;
+}
+
+.family-container.Colorless {
+  grid-area: colorless;
+}
+
+.family-container Button:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+  opacity: 1;
+}
+
+.family-container.Curse Button {
+  background-color: #555555;
+}
+
+.family-container.Status Button {
+  background-color: #777777;
+}
+
+.family-container.Red Button {
+  background-color: #f44336;
+}
+
+.family-container.Green Button {
+  background-color: #4CAF50;
+}
+
+.family-container.Colorless Button {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.family-container.active Button {
+  opacity: 1;
+}

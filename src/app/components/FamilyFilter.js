@@ -6,17 +6,20 @@ import 'app/css/FamilyFilter.css';
 
 export const FamilyFilter = (props) => {
   let filters;
+
   if (props.filters) {
-    filters = props.filters.map(family => {
+    filters = Object.keys(props.filters).map(key => {
       return (
-        <Family key={family.id} name={family.name}/>
+        <Family key={props.filters[key].id} id={props.filters[key].id} name={props.filters[key].name} isActive={props.filters[key].isActive}/>
       );
     });
   }
 
   return (
     <div className="family-filter">
-      {filters}
+      <div className="family-filter-button-container">
+        {filters}
+      </div>
     </div>
   );
 }
