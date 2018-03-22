@@ -3,9 +3,8 @@ const appReducer = (state = {
 }, action) => {
   switch (action.type){
     case "LOAD_CARD_DATABASE_REQUEST":
-    let appState = {...state.app};
       state = {
-        ...appState,
+        ...state,
         isLoading:true
       };
       break;

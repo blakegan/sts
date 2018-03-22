@@ -6,6 +6,7 @@ import {Book} from 'app/components/Book';
 import {Loading} from 'app/components/Loading';
 import {FamilyFilter} from 'app/components/FamilyFilter';
 
+import {filterBook} from 'app/reducers/cardLibraryReducer';
 import {toggleFamilyFilter} from 'app/actions/cardLibraryActions';
 
 import 'app/css/CardLibrary.css';
@@ -13,8 +14,8 @@ import 'app/css/CardLibrary.css';
 export class CardLibrary extends Component {
   render() {
     let cards = [];
-    if (this.props.app.cardDatabase) {
-      cards = this.props.app.cardDatabase;
+    if (this.props.cardLibrary.book) {
+      cards = this.props.cardLibrary.book;
     }
 
     let familyFilters = [];
@@ -46,7 +47,10 @@ export class CardLibrary extends Component {
 const mapStateToProps = (state) => {
   return {
     app: state.app,
-    cardLibrary: state.cardLibrary
+    cardLibrary: {
+      book: filterBook(state),
+      filters: state.cardLibrary.filters
+    }
   };
 };
 

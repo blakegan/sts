@@ -4,15 +4,16 @@ const cardLibraryReducer = (state = {
 }, action) => {
   switch (action.type){
     case "LOAD_FAMILY_FILTERS":
-      let familyFilters = {};
+      let familyFilters = [];
 
       action.payload.forEach((data) => {
         let family = {
           id: data.id,
           name: data.name,
-          isActive: data.isActive
+          isActive: data.isActive,
+          type: 'family'
         }
-        familyFilters[data.id] = family;
+        familyFilters.push(family);
       });
 
       state = {
@@ -23,9 +24,10 @@ const cardLibraryReducer = (state = {
 
     case "TOGGLE_FAMILY_FILTER":
       let bookState = [...state.book];
-      let filterState = {...state.filters};
+      let filterState = [...state.filters];
 
-      filterState[action.payload].isActive = !(filterState[action.payload].isActive);
+      let filter = filterState.find(filter => filter.id == action.payload);
+      filter.isActive = !filter.isActive
 
       state = {
         ...state,
@@ -39,5 +41,18 @@ const cardLibraryReducer = (state = {
 
   return state;
 };
+
+export const filterBook = (state) => {
+  let filteredBook = [];
+  for (let filter of state.cardLibrary.filters) {
+    if (filter.isActive) {
+      let allCards = state.app.cardDatabase;
+      let chunk = allCards.filter(card => card[filter.type].toLowerCase() === filter.name.toLowerCase());
+      filteredBook = [...filteredBook, ...chunk];
+    }
+  }
+  
+  return filteredBook;
+}
 
 export default cardLibraryReducer;
