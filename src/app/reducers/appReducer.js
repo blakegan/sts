@@ -10,21 +10,27 @@ const appReducer = (state = {
       break;
     case "LOAD_CARD_DATABASE_RECEIVED":
       let cardDatabase = [];
-
       action.payload.forEach((data) => {
-        let card = {
-          id: data.id,
-          art: data.art,
-          cost: data.cost,
-          isUpgrade: data.isUpgrade,
-          family: data.family,
-          name: data.name,
-          rarity: data.rarity,
-          text: data.text,
-          type: data.type,
-          upgrade: data.upgrade
+        if (!data.isUpgrade) {
+          let card = {
+            id: data.id,
+            art: data.art,
+            cost: data.cost,
+            isUpgrade: data.isUpgrade,
+            family: data.family,
+            name: data.name,
+            rarity: data.rarity,
+            text: data.text,
+            type: data.type,
+            upgrade: data.upgrade
+          }
+
+          if (data.upgrade) {
+            card.upgrade = {...action.payload[data.upgrade]};
+          }
+          
+          cardDatabase.push(card);
         }
-        cardDatabase.push(card);
       });
 
       state = {

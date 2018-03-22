@@ -6,6 +6,7 @@
   },
   "cardLibrary": {
     "book": [],
-    "filters": []
+    "filters": [],
+    "upgradeCards": false
   }
 }

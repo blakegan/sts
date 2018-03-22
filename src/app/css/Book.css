@@ -6,8 +6,9 @@
   max-height: 580px;
   margin:auto;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-left: 15px;
+  padding-top: 15px;
 }
 
 .book::-webkit-scrollbar-track
@@ -55,5 +56,6 @@
     grid-template-columns: repeat(5, auto);
     grid-template-areas:
       "card1 card2 card3 card4 card5";
+    min-height: 580px;
   }
 }

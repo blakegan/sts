@@ -8,6 +8,9 @@ export const Book = (props) => {
   let cards;
   if (props.cards) {
     cards = props.cards.map(card => {
+      if (props.upgrade && card.upgrade) {
+        card = {...card.upgrade};
+      }
       return (
         <Card key={card.id} art={card.art} cost={card.cost} family={card.family} isUpgrade={card.isUpgrade} name={card.name} rarity={card.rarity} text={card.text} type={card.type}/>
       );

@@ -1,18 +1,10 @@
-export function loadCardDatabase() {
-  const firebaseRef = window.firebase.database().ref('/cards');
+import cardDatabse from 'cardDatabase.json';
 
+export function loadCardDatabase() {
   return dispatch => {
     dispatch({
-      type: "LOAD_CARD_DATABASE_REQUEST",
-      payload: null
-    });
-
-    firebaseRef
-      .once("value", (snapshot) => {
-        dispatch({
-          type: "LOAD_CARD_DATABASE_RECEIVED",
-          payload: snapshot.val()
-        });
+      type: "LOAD_CARD_DATABASE_RECEIVED",
+      payload: cardDatabse.cards
     });
   }
 }

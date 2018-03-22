@@ -23,16 +23,20 @@ const cardLibraryReducer = (state = {
       break;
 
     case "TOGGLE_FAMILY_FILTER":
-      let bookState = [...state.book];
       let filterState = [...state.filters];
 
       let filter = filterState.find(filter => filter.id == action.payload);
-      filter.isActive = !filter.isActive
+      filter.isActive = !filter.isActive;
 
       state = {
         ...state,
-        book: bookState,
         filters: filterState
+      };
+      break;
+    case "TOGGLE_UPGRADE_CARDS":
+      state = {
+        ...state,
+        upgradeCards: !state.upgradeCards
       };
       break;
     default:
@@ -51,7 +55,7 @@ export const filterBook = (state) => {
       filteredBook = [...filteredBook, ...chunk];
     }
   }
-  
+
   return filteredBook;
 }
 

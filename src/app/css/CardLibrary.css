@@ -1,13 +1,13 @@
 .card-library {
   display: grid;
   grid-template-rows: 0.5fr 2fr 20fr 6fr 1fr;
-  grid-template-columns: 0.6fr 1fr 2fr 2fr 0.6fr;
+  grid-template-columns: 0.6fr 1fr 2fr 2fr 1fr 0.6fr;
   grid-template-areas:
-    ". . . . ."
-    ". title title title ."
-    "book book book book book"
-    ". family tag-cloud tag-cloud ."
-    ". footer footer footer ."
+    ". . . . . ."
+    ". title title title title ."
+    "book book book book book book"
+    ". family tag-cloud tag-cloud upgrade-cards ."
+    ". footer footer footer footer ."
   ;
   background: rgba(0, 0, 0, .7);
   background-repeat:no-repeat;
