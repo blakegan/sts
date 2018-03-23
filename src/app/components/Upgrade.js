@@ -20,7 +20,7 @@ export const Upgrade = (props) => {
 
   return (
     <div className={containerClasses}>
-      <div className="upgrade-cards-image"><img id="drop-shadow" onClick={(event) => clickHandler(event)} draggable="false" src="/misc-assets/smith.png" /></div>
+      <div className="upgrade-cards-image"><img id="drop-shadow" onClick={(event) => clickHandler(event)} draggable="false" src="/misc-assets/Smith.png" /></div>
       <div className="upgrade-cards-text">Upgrade Cards</div>
     </div>
   );
