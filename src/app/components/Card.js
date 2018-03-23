@@ -63,5 +63,9 @@ Card.propTypes = {
   name: PropTypes.string,
   rarity: PropTypes.string,
   text: PropTypes.array,
-  type: PropTypes.string
+  type: PropTypes.string,
+  upgrade: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.object
+  ])
 }
