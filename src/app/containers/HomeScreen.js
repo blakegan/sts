@@ -8,7 +8,6 @@ export class HomeScreen extends Component {
     return (
       <div className="home-screen">
         <Banner key={"Card Library"} route={"/cards"} alt={"Card Library"} src={"../misc-assets/CardLibrary.png"}/>
-        <Banner key={"Relic Collection"} route={"/"} alt={"Relic Collection"} src={"../misc-assets/RelicCollection.png"}/>
         <Banner key={"Beastiary"} route={"/"} alt={"Beastiary"} src={"../misc-assets/Beastiary.png"}/>
       </div>
     );
